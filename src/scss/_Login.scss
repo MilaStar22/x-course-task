@@ -1,0 +1,59 @@
+@use "./mixins";
+
+.login_form {
+  @include mixins.flex-center;
+  gap: 10px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding-top: 30px;
+  .user_login {
+    border-radius: 5px;
+    border: 1px solid black;
+    width: 160px;
+    height: 148px;
+    display: flex;
+    padding-top: 12px;
+  }
+  .form {
+    @include mixins.flex-center;
+    padding-top: 20px;
+    gap: 10px;
+    width: 100%;
+    label {
+      font-weight: 600;
+      @include mixins.adaptiv-font(20,15);
+    }
+    input {
+      width: 100%;
+      max-width: 200px;
+      height: 40px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    input[type=submit] {
+      background-color: rgb(211, 204, 204);
+      font-weight: 600;
+      &:hover {
+        background-color: rgb(225, 93, 111);
+      }
+    }
+    small {
+      color: red;
+      @include mixins.adaptiv-font(14,12);
+      align-self: center;
+    }
+  }
+}
+@media (max-width: 320px) {
+  .login_form {
+    padding: 10px 8px;
+    .user_login {
+      width: 200px;
+      height: 188px;
+    }
+    .form input, input[type=submit] {
+    max-width: calc(100% - 8px);
+    max-width: 100%;
+    }
+  }
+}

@@ -1,0 +1,80 @@
+@use "./mixins";
+
+header {
+  .header {
+    display: grid;
+    grid-template-columns: 160px 1fr 320px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center; 
+    padding: 20px 10px; 
+    box-sizing: border-box;
+    gap: 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 3;
+    background-color: rgb(31, 143, 145);
+    opacity: 0.8;
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center; 
+      gap: 20px;  
+      .logo_img {
+      width: 160px;
+      height: auto;
+      max-height: 100px;
+      }
+    }
+    .logo_text p {
+      @include mixins.adaptiv-font(20, 14);
+      font-weight: 600;
+    }
+    .user {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      input[type=submit] {
+        border-radius: 20px;
+        padding: 5px 10px;
+        font-weight: 600;
+        border-color: rgb(111, 187, 189);
+        @include mixins.adaptiv-font(20, 14);
+        &:hover {
+          background-color: rgb(225, 93, 111);;
+        }
+      }
+      svg {
+        width: 42px;
+        height: 50px;
+      }
+      span {
+        @include mixins.adaptiv-font(20, 14);
+        font-weight: 500;
+      }
+    }
+  }
+}
+@media (max-width: 860px) {
+  header .header {
+    grid-template-columns: 160px 1fr;
+    grid-template-areas: "logo text"
+                         "user user";
+    grid-template-rows: auto auto;
+    gap: 10px;
+    padding: 10px; 
+    .logo {
+      grid-area: logo;
+    }
+    .logo_text {
+      grid-area: text;
+    }
+    .user {
+      grid-area: user;
+      justify-content: flex-end;
+    }
+  }
+}

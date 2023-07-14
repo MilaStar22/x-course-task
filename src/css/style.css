@@ -1,0 +1,385 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v5.0.1 | 20191019
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, menu, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+main, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, main, menu, nav, section {
+  display: block;
+}
+
+/* HTML5 hidden-attribute fix for newer browsers */
+*[hidden] {
+  display: none;
+}
+
+body {
+  line-height: 1;
+}
+
+menu, ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+header .header {
+  display: grid;
+  grid-template-columns: 160px 1fr 320px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10px;
+  box-sizing: border-box;
+  gap: 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 3;
+  background-color: rgb(31, 143, 145);
+  opacity: 0.8;
+}
+header .header .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+header .header .logo .logo_img {
+  width: 160px;
+  height: auto;
+  max-height: 100px;
+}
+header .header .logo_text p {
+  font-size: calc(14px + 6 * ((100vw - 320px) / 1080));
+  font-weight: 600;
+}
+header .header .user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+header .header .user input[type=submit] {
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-weight: 600;
+  border-color: rgb(111, 187, 189);
+  font-size: calc(14px + 6 * ((100vw - 320px) / 1080));
+}
+header .header .user input[type=submit]:hover {
+  background-color: rgb(225, 93, 111);
+}
+header .header .user svg {
+  width: 42px;
+  height: 50px;
+}
+header .header .user span {
+  font-size: calc(14px + 6 * ((100vw - 320px) / 1080));
+  font-weight: 500;
+}
+
+@media (max-width: 860px) {
+  header .header {
+    grid-template-columns: 160px 1fr;
+    grid-template-areas: "logo text" "user user";
+    grid-template-rows: auto auto;
+    gap: 10px;
+    padding: 10px;
+  }
+  header .header .logo {
+    grid-area: logo;
+  }
+  header .header .logo_text {
+    grid-area: text;
+  }
+  header .header .user {
+    grid-area: user;
+    justify-content: flex-end;
+  }
+}
+footer {
+  background-color: rgb(31, 143, 145);
+  opacity: 0.8;
+  padding: 20px 0;
+}
+footer .footer-wrapper {
+  position: relative;
+  margin-bottom: 40px;
+}
+footer .footer-wrapper .footer-content {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+footer .footer-wrapper .footer-content .logo_img {
+  width: 160px;
+  height: auto;
+  max-height: 100px;
+}
+footer .footer-wrapper .footer-content .social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+footer .footer-wrapper .footer-content .social button {
+  border-radius: 50%;
+  border: 1px solid black;
+  background-color: unset;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer .footer-wrapper .footer-content .social button svg {
+  width: 20px;
+  height: 20px;
+  fill: black;
+}
+footer .footer-copyright {
+  color: black;
+  font-size: calc(10px + 5 * ((100vw - 320px) / 1080));
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+footer .footer-copyright .right {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+footer .footer-copyright .right span {
+  width: 1px;
+  background: black;
+}
+footer .footer-copyright a {
+  color: black;
+  text-decoration: none;
+}
+footer .footer-copyright a:hover {
+  color: #fff;
+}
+
+@media (max-width: 380px) {
+  footer .footer-wrapper .footer-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+  footer .footer-copyright {
+    gap: 20px;
+  }
+  footer .footer-copyright .right {
+    max-width: 140px;
+  }
+}
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.error img {
+  width: 70%;
+}
+.error h1 {
+  font-size: calc(45px + 35 * ((100vw - 320px) / 1080));
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fd6500;
+  margin: 10px;
+}
+.error p {
+  color: #000;
+  font-weight: 700;
+  line-height: 1.2;
+  font-size: calc(18px + 6 * ((100vw - 320px) / 1080));
+}
+.error a {
+  margin-top: 15px;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.error a button {
+  padding: 0px 30px;
+  font-size: 16px;
+  height: 50px;
+  background: transparent;
+  border: 1px solid #b4b4b4;
+  font-weight: 500;
+}
+.error a:hover {
+  background-color: rgb(234, 186, 26);
+}
+
+.login_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding-top: 30px;
+}
+.login_form .user_login {
+  border-radius: 5px;
+  border: 1px solid black;
+  width: 160px;
+  height: 148px;
+  display: flex;
+  padding-top: 12px;
+}
+.login_form .form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+  gap: 10px;
+  width: 100%;
+}
+.login_form .form label {
+  font-weight: 600;
+  font-size: calc(15px + 5 * ((100vw - 320px) / 1080));
+}
+.login_form .form input {
+  width: 100%;
+  max-width: 200px;
+  height: 40px;
+  border-radius: 10px;
+  text-align: center;
+}
+.login_form .form input[type=submit] {
+  background-color: rgb(211, 204, 204);
+  font-weight: 600;
+}
+.login_form .form input[type=submit]:hover {
+  background-color: rgb(225, 93, 111);
+}
+.login_form .form small {
+  color: red;
+  font-size: calc(12px + 2 * ((100vw - 320px) / 1080));
+  align-self: center;
+}
+
+@media (max-width: 320px) {
+  .login_form {
+    padding: 10px 8px;
+  }
+  .login_form .user_login {
+    width: 200px;
+    height: 188px;
+  }
+  .login_form .form input, .login_form input[type=submit] {
+    max-width: calc(100% - 8px);
+    max-width: 100%;
+  }
+}
+body {
+  font-family: "Montserrat", sans-serif;
+}
+body:hover {
+  cursor: pointer;
+}
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+main {
+  padding-top: 140px;
+  padding-bottom: 30px;
+}
+
+.day-night {
+  transition-property: background-color;
+  transition-duration: 1s;
+  transition-timing-function: linear;
+}
+
+.light {
+  background-color: rgb(240, 233, 233);
+}
+
+.dark {
+  background-color: rgba(27, 22, 22, 0.7);
+  color: white;
+}
+
+.mode {
+  position: relative;
+  top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: calc(14px + 4 * ((100vw - 320px) / 1080));
+  gap: 10px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.mode button {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 46px;
+  height: 42px;
+  padding: 0;
+  border-radius: 5px;
+}
+.mode button .svg {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+@media (max-width: 860px) {
+  main {
+    padding-top: 180px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

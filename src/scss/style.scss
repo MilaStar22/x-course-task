@@ -1,0 +1,78 @@
+@use "./mixins";
+@import '../../node_modules/reset-css/sass/reset';
+@import "Header";
+// @import "MoviesList";
+// @import "SingleMovie";
+// @import "Search";
+// @import "MainSlider";
+// @import "Contacts";
+// @import "About";
+// @import "NavWithImg";
+@import "Footer";
+@import "Error";
+// @import "PopularFilms";
+// @import "Actors";
+@import "Login";
+// @import "WishList";
+
+// sass src/scss/style.scss src/css/style.css --watch
+body {
+  font-family: "Montserrat", sans-serif;
+  &:hover {
+    cursor: pointer;
+  }  
+}
+.container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 15px;
+  box-sizing: border-box; // avoid scroll
+}
+main {
+  padding-top: 140px;
+  padding-bottom: 30px;
+}
+
+.day-night {
+  transition-property: background-color;
+  transition-duration: 1s;
+  transition-timing-function: linear;
+}
+.light {
+  background-color: rgb(240, 233, 233);
+}
+.dark {
+  background-color: rgba(27, 22, 22, 0.7);
+  color: white;
+}
+.mode {
+  position: relative;
+  top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  @include mixins.adaptiv-font(18, 14);
+  gap: 10px;
+  padding: 5px;
+  margin-bottom: 10px;
+  button {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 46px;
+    height: 42px;
+    padding: 0;
+    border-radius: 5px;
+    .svg {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+    }
+  }  
+}
+@media (max-width: 860px) {
+  main {
+    padding-top: 180px;
+  }
+}

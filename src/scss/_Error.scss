@@ -1,0 +1,37 @@
+@use "./mixins";
+
+.error {
+  @include mixins.flex-center;
+  img {
+    width: 70%;
+  }
+  h1 {
+    @include mixins.adaptiv-font(80, 45);
+    font-weight: 700;
+    line-height: 1.2;
+    color: #fd6500;
+    margin: 10px;
+  }
+  p {
+    color: #000;
+    font-weight: 700;
+    line-height: 1.2;
+    @include mixins.adaptiv-font(24, 18);
+  }
+  a {
+    margin-top: 15px;
+    white-space: nowrap;
+    text-decoration: none;
+    button {
+      padding: 0px 30px;
+      font-size: 16px;
+      height: 50px;  
+      background: transparent;
+      border: 1px solid #b4b4b4;
+      font-weight: 500;
+    }
+    &:hover {
+      background-color: rgb(234, 186, 26);
+    }
+  }
+}

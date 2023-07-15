@@ -66,7 +66,6 @@ header .header {
   padding: 20px 10px;
   box-sizing: border-box;
   gap: 20px;
-  position: fixed;
   width: 100%;
   top: 0;
   z-index: 3;
@@ -95,14 +94,14 @@ header .header .user {
   gap: 15px;
   flex-wrap: wrap;
 }
-header .header .user input[type=submit] {
+header .header .user .sign-out {
   border-radius: 20px;
   padding: 5px 10px;
   font-weight: 600;
   border-color: rgb(111, 187, 189);
   font-size: calc(14px + 6 * ((100vw - 320px) / 1080));
 }
-header .header .user input[type=submit]:hover {
+header .header .user .sign-out:hover {
   background-color: rgb(225, 93, 111);
 }
 header .header .user svg {
@@ -170,27 +169,24 @@ footer .footer-wrapper .footer-content .social button {
   justify-content: center;
   align-items: center;
 }
+footer .footer-wrapper .footer-content .social button:hover {
+  border: 1px solid #fff;
+}
 footer .footer-wrapper .footer-content .social button svg {
   width: 20px;
   height: 20px;
   fill: black;
+}
+footer .footer-wrapper .footer-content .social button svg:hover {
+  fill: #fff;
 }
 footer .footer-copyright {
   color: black;
   font-size: calc(10px + 5 * ((100vw - 320px) / 1080));
   font-weight: 600;
   display: flex;
-  justify-content: space-between;
-  gap: 5px;
-}
-footer .footer-copyright .right {
-  display: flex;
   justify-content: center;
-  gap: 20px;
-}
-footer .footer-copyright .right span {
-  width: 1px;
-  background: black;
+  gap: 5px;
 }
 footer .footer-copyright a {
   color: black;
@@ -225,7 +221,7 @@ footer .footer-copyright a:hover {
   font-size: calc(45px + 35 * ((100vw - 320px) / 1080));
   font-weight: 700;
   line-height: 1.2;
-  color: #fd6500;
+  color: rgb(225, 93, 111);
   margin: 10px;
 }
 .error p {
@@ -248,7 +244,7 @@ footer .footer-copyright a:hover {
   font-weight: 500;
 }
 .error a:hover {
-  background-color: rgb(234, 186, 26);
+  background-color: rgb(225, 93, 111);
 }
 
 .login_form {
@@ -315,6 +311,166 @@ footer .footer-copyright a:hover {
     max-width: 100%;
   }
 }
+.bucket_wrapper {
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.bucket_wrapper .btn_purchase {
+  display: block;
+  float: right;
+  margin: 20px;
+  padding: 10px 15px;
+  font-weight: 600;
+  border-radius: 5px;
+  background-color: rgb(155, 149, 149);
+}
+.bucket_wrapper .btn_purchase:hover {
+  background-color: rgb(225, 93, 111);
+}
+.bucket_wrapper .empty_bucket {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.bucket_wrapper .empty_bucket svg {
+  fill: rgb(122, 118, 118);
+  width: 80px;
+  height: auto;
+}
+.bucket_wrapper .empty_bucket p {
+  font-size: calc(14px + 6 * ((100vw - 320px) / 1080));
+  font-weight: 600;
+}
+
+h2 {
+  font-size: calc(17px + 9 * ((100vw - 320px) / 1080));
+  font-weight: 600;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.books_wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  box-sizing: border-box;
+  gap: 25px;
+}
+.books_wrapper .book {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+.books_wrapper .book .img_wrapper img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 2px solid rgb(31, 143, 145);
+}
+.books_wrapper .book .img_wrapper .default-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-height: 360px;
+}
+.books_wrapper .book p {
+  font-size: calc(14px + 6 * ((100vw - 320px) / 1080));
+  font-weight: 600;
+  padding: 20px 0;
+}
+.books_wrapper .book .btn_list {
+  width: 100%;
+  border-radius: 5px;
+  padding: 5px 0;
+  background-color: rgb(211, 204, 204);
+  font-weight: 600;
+}
+.books_wrapper .book .btn_list:hover {
+  background-color: rgb(225, 93, 111);
+}
+
+@media (max-width: 1000px) {
+  .books_wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .books_wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 390px) {
+  .books_wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.single_book {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  margin: 60px;
+}
+.single_book .book_cover {
+  width: 100%;
+  max-width: 400px;
+  max-height: 500px;
+  height: auto;
+  border-radius: 20px;
+  border: 2px solid rgb(31, 143, 145);
+}
+.single_book .book_summary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 15px;
+}
+.single_book .book_summary .book_title {
+  font-size: calc(20px + 5 * ((100vw - 320px) / 1080));
+  font-weight: 700;
+  color: rgb(31, 143, 145);
+}
+.single_book .book_summary .book_author {
+  font-size: calc(18px + 4 * ((100vw - 320px) / 1080));
+  font-weight: 600;
+}
+.single_book .book_summary .book_tags {
+  font-size: calc(16px + 4 * ((100vw - 320px) / 1080));
+  font-weight: 700;
+}
+.single_book .book_summary .book_level {
+  font-size: calc(15px + 5 * ((100vw - 320px) / 1080));
+  font-weight: 600;
+}
+.single_book .book_summary .book_description {
+  width: 100%;
+  font-size: calc(16px + 4 * ((100vw - 320px) / 1080));
+  padding: 10px 0;
+  height: 300px;
+  overflow: auto;
+}
+.single_book .book_summary span {
+  color: rgb(31, 143, 145);
+}
+.single_book .book_summary .btn_buy {
+  width: 150px;
+  padding: 10px 25px;
+  font-weight: 600;
+  border-radius: 5px;
+  background-color: rgb(155, 149, 149);
+}
+.single_book .book_summary .btn_buy:hover {
+  background-color: rgb(225, 93, 111);
+}
+
+@media (max-width: 804px) {
+  .single_book {
+    flex-direction: column;
+    margin: 40px 20px;
+  }
+}
 body {
   font-family: "Montserrat", sans-serif;
 }
@@ -331,8 +487,7 @@ body:hover {
 }
 
 main {
-  padding-top: 140px;
-  padding-bottom: 30px;
+  padding: 10px 20px 50px;
 }
 
 .day-night {
@@ -346,7 +501,7 @@ main {
 }
 
 .dark {
-  background-color: rgba(27, 22, 22, 0.7);
+  background-color: rgba(9, 0, 0, 0.7);
   color: white;
 }
 
@@ -374,12 +529,6 @@ main {
   width: 100%;
   height: 100%;
   object-fit: fill;
-}
-
-@media (max-width: 860px) {
-  main {
-    padding-top: 180px;
-  }
 }
 
 /*# sourceMappingURL=style.css.map */

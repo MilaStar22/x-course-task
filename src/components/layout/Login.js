@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useForm } from 'react-hook-form';
 import sprite from "../img/sprites.svg";
 
@@ -44,11 +44,13 @@ export default function Login() {
                 <small>{errors.user.message}</small>
               )}
 
-            <input 
-              type="submit" 
-              className='login_submit'
-              value="Sign-In"
-            />
+            <Link to='/books'>
+              <input 
+                type="submit" 
+                className='login_submit'
+                value="Sign-In"
+              />
+            </Link>
         </form>
       </div>
     );

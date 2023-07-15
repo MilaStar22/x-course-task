@@ -10,7 +10,6 @@ header {
     padding: 20px 10px; 
     box-sizing: border-box;
     gap: 20px;
-    position: fixed;
     width: 100%;
     top: 0;
     z-index: 3;
@@ -37,14 +36,14 @@ header {
       align-items: center;
       gap: 15px;
       flex-wrap: wrap;
-      input[type=submit] {
+      .sign-out {
         border-radius: 20px;
         padding: 5px 10px;
         font-weight: 600;
         border-color: rgb(111, 187, 189);
         @include mixins.adaptiv-font(20, 14);
         &:hover {
-          background-color: rgb(225, 93, 111);;
+          background-color: rgb(225, 93, 111);
         }
       }
       svg {

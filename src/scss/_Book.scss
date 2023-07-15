@@ -1,0 +1,66 @@
+@use "./mixins";
+
+.single_book {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  margin: 60px;
+  .book_cover {
+    width: 100%;
+    max-width: 400px;
+    max-height: 500px;
+    height: auto;
+    border-radius: 20px; 
+    border: 2px solid rgb(31, 143, 145);
+  }
+  .book_summary {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+    .book_title {
+      @include mixins.adaptiv-font(25, 20);
+      font-weight: 700;
+      color: rgb(31, 143, 145);
+    }
+    .book_author {
+      @include mixins.adaptiv-font(22, 18);
+      font-weight: 600;
+    }
+    .book_tags {
+      @include mixins.adaptiv-font(20, 16);
+      font-weight: 700;
+    }
+    .book_level {
+      @include mixins.adaptiv-font(20, 15);
+      font-weight: 600;
+    }
+    .book_description {
+      width: 100%;
+      @include mixins.adaptiv-font(20, 16);
+      padding: 10px 0;
+      height: 300px;
+      overflow: auto;
+    }
+    span {
+      color: rgb(31, 143, 145);
+    }
+    .btn_buy {
+      width: 150px;
+      padding: 10px 25px;
+      font-weight: 600;
+      border-radius: 5px;
+      background-color: rgb(155, 149, 149);
+      &:hover {
+        background-color: rgb(225, 93, 111);
+      }
+    }
+  }
+}
+@media (max-width: 804px) {
+  .single_book {
+    flex-direction: column;
+    margin: 40px 20px;
+  }
+}

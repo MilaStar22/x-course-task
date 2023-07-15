@@ -9,7 +9,7 @@
     @include mixins.adaptiv-font(80, 45);
     font-weight: 700;
     line-height: 1.2;
-    color: #fd6500;
+    color: rgb(225, 93, 111);
     margin: 10px;
   }
   p {
@@ -31,7 +31,7 @@
       font-weight: 500;
     }
     &:hover {
-      background-color: rgb(234, 186, 26);
+      background-color: rgb(225, 93, 111);
     }
   }
 }

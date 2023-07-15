@@ -32,10 +32,16 @@ footer {
           display: flex;
           justify-content: center;
           align-items: center;
+          &:hover {
+            border:  1px solid #fff;
+          }
           svg {
             width: 20px;
             height: 20px;
             fill: black;
+            &:hover {
+              fill: #fff;
+            }
           }  
         }
       }
@@ -46,17 +52,8 @@ footer {
     @include mixins.adaptiv-font(15, 10);
     font-weight: 600;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 5px;
-    .right {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      span {
-        width: 1px;
-        background: black;
-      }
-    }
     a {
       color: black;
       text-decoration: none;

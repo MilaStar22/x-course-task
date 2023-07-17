@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/
    v5.0.1 | 20191019
    License: none (public domain)
@@ -406,13 +407,13 @@ h2 {
     grid-template-columns: repeat(1, 1fr);
   }
 }
-.single_book {
-  display: flex;
-  flex-direction: row;
-  gap: 50px;
-  margin: 60px;
+.book_wrapper {
+  margin: 40px 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
 }
-.single_book .book_cover {
+.book_wrapper .book_cover {
   width: 100%;
   max-width: 400px;
   max-height: 500px;
@@ -420,55 +421,127 @@ h2 {
   border-radius: 20px;
   border: 2px solid rgb(31, 143, 145);
 }
-.single_book .book_summary {
+.book_wrapper .book_about_wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 15px;
+  gap: 20px;
+  line-height: 1.2;
 }
-.single_book .book_summary .book_title {
-  font-size: calc(20px + 5 * ((100vw - 320px) / 1080));
-  font-weight: 700;
-  color: rgb(31, 143, 145);
-}
-.single_book .book_summary .book_author {
-  font-size: calc(18px + 4 * ((100vw - 320px) / 1080));
-  font-weight: 600;
-}
-.single_book .book_summary .book_tags {
-  font-size: calc(16px + 4 * ((100vw - 320px) / 1080));
-  font-weight: 700;
-}
-.single_book .book_summary .book_level {
+.book_wrapper .book_about_wrapper .book_about {
+  display: inline;
   font-size: calc(15px + 5 * ((100vw - 320px) / 1080));
+}
+.book_wrapper .book_about_wrapper .book_about h4 {
+  float: left;
+  font-weight: 600;
+  padding-right: 10px;
+}
+.book_wrapper .book_about_wrapper .book_about p {
+  float: left;
+  color: rgb(31, 143, 145);
+  font-weight: 700;
+}
+.book_wrapper .book_about_price {
+  border: 2px dotted rgb(23, 19, 19);
+  height: fit-content;
+  padding: 20px 15px;
+  line-height: 50px;
+}
+.book_wrapper .book_about_price .about_price {
+  display: flex;
+  justify-content: space-between;
+}
+.book_wrapper .book_about_price .about_price h4 {
+  font-weight: 600;
+  padding-right: 10px;
+  font-size: calc(15px + 5 * ((100vw - 320px) / 1080));
+}
+.book_wrapper .book_about_price .about_price p {
+  font-weight: 600;
+  padding-right: 10px;
+}
+.book_wrapper .book_about_price .about_price input[type=number] {
+  width: 80px;
+  border-radius: 15px;
+  text-align: center;
+  font-weight: 400;
+  padding: 10px 5px;
+}
+.book_wrapper .book_about_price .about_price .number-wrapper {
+  position: relative;
+}
+.book_wrapper .book_about_price .about_price .number-wrapper:after,
+.book_wrapper .book_about_price .about_price .number-wrapper:before {
+  position: absolute;
+  right: 5px;
+  width: 1.6em;
+  height: 0.9em;
+  font-size: 10px;
+  pointer-events: none;
+  background: #fff;
+}
+.book_wrapper .book_about_price .about_price .number-wrapper:after {
+  color: blue;
+  content: "▲";
+  margin-top: 1px;
+  line-height: 3;
+}
+.book_wrapper .book_about_price .about_price .number-wrapper:before {
+  color: red;
+  content: "▼";
+  bottom: 10px;
+  line-height: 0;
+}
+.book_wrapper .add_to_card {
+  float: right;
+  padding: 10px 20px;
+  font-weight: 600;
+  border-radius: 15px;
+  background-color: rgb(174, 203, 193);
+}
+.book_wrapper .number-wrapper input[type=number]::-webkit-inner-spin-button,
+.book_wrapper .number-wrapper input[type=number]::-webkit-outer-spin-button {
+  opacity: 0;
+}
+
+.book_description {
+  margin: 40px 30px;
+}
+.book_description h4 {
+  font-family: "Montserrat", "sans-serif";
+  font-style: normal;
   font-weight: 600;
 }
-.single_book .book_summary .book_description {
+.book_description p {
   width: 100%;
   font-size: calc(16px + 4 * ((100vw - 320px) / 1080));
   padding: 10px 0;
   height: 300px;
   overflow: auto;
-}
-.single_book .book_summary span {
-  color: rgb(31, 143, 145);
-}
-.single_book .book_summary .btn_buy {
-  width: 150px;
-  padding: 10px 25px;
-  font-weight: 600;
-  border-radius: 5px;
-  background-color: rgb(155, 149, 149);
-}
-.single_book .book_summary .btn_buy:hover {
-  background-color: rgb(225, 93, 111);
+  line-height: 1.2;
 }
 
-@media (max-width: 804px) {
-  .single_book {
-    flex-direction: column;
-    margin: 40px 20px;
+@media (max-width: 768px) {
+  .book_wrapper {
+    grid-template-areas: "img price" "about about";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+  }
+  .book_wrapper .book_about_wrapper {
+    grid-area: about;
+  }
+  .book_wrapper .book_cover {
+    grid-area: img;
+  }
+  .book_wrapper .book_about_price {
+    grid-area: price;
+  }
+}
+@media (max-width: 493px) {
+  .book_wrapper {
+    grid-template-areas: "img" "price" "about";
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto auto auto;
   }
 }
 body {

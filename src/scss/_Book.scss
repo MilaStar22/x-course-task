@@ -1,10 +1,10 @@
 @use "./mixins";
 
-.single_book {
-  display: flex;
-  flex-direction: row;
-  gap: 50px;
-  margin: 60px;
+.book_wrapper {
+  margin: 40px 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
   .book_cover {
     width: 100%;
     max-width: 400px;
@@ -13,54 +13,131 @@
     border-radius: 20px; 
     border: 2px solid rgb(31, 143, 145);
   }
-  .book_summary {
+  .book_about_wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 15px;
-    .book_title {
-      @include mixins.adaptiv-font(25, 20);
-      font-weight: 700;
-      color: rgb(31, 143, 145);
-    }
-    .book_author {
-      @include mixins.adaptiv-font(22, 18);
-      font-weight: 600;
-    }
-    .book_tags {
-      @include mixins.adaptiv-font(20, 16);
-      font-weight: 700;
-    }
-    .book_level {
+    gap: 20px;
+    line-height: 1.2;
+    .book_about {
+      display: inline;
       @include mixins.adaptiv-font(20, 15);
-      font-weight: 600;
-    }
-    .book_description {
-      width: 100%;
-      @include mixins.adaptiv-font(20, 16);
-      padding: 10px 0;
-      height: 300px;
-      overflow: auto;
-    }
-    span {
-      color: rgb(31, 143, 145);
-    }
-    .btn_buy {
-      width: 150px;
-      padding: 10px 25px;
-      font-weight: 600;
-      border-radius: 5px;
-      background-color: rgb(155, 149, 149);
-      &:hover {
-        background-color: rgb(225, 93, 111);
+      h4 {
+        float: left;
+        font-weight: 600;
+        padding-right: 10px;
+      }
+      p {
+        float: left;
+        color: rgb(31, 143, 145);
+        font-weight: 700;
       }
     }
   }
+  .book_about_price {
+    border: 2px dotted rgb(23, 19, 19);
+    height: fit-content;
+    padding: 20px 15px;
+    line-height: 50px;
+    .about_price {
+      display: flex;
+      justify-content: space-between;
+      h4 {
+        font-weight: 600;
+        padding-right: 10px;
+        @include mixins.adaptiv-font(20, 15);
+      }
+      p {
+        font-weight: 600;
+        padding-right: 10px;
+      }
+    }
+  }
+  .book_about_price .about_price input[type=number] {
+    width: 80px;
+    border-radius: 15px;
+    text-align: center;
+    font-weight: 400;
+    padding: 10px 5px;
+  }
+  .book_about_price .about_price .number-wrapper {
+    position: relative;
+  }
+
+  .book_about_price .about_price .number-wrapper:after,
+  .book_about_price .about_price .number-wrapper:before {
+    position: absolute;
+    right: 5px;
+    width: 1.6em;
+    height: .9em;
+    font-size: 10px;
+    pointer-events: none;
+    background: #fff;
+  }
+
+  .book_about_price .about_price .number-wrapper:after {
+    color: blue;
+    content: "\25B2";
+    margin-top: 1px;
+    line-height: 3;
+  }
+
+  .book_about_price .about_price .number-wrapper:before {
+    color: red;
+    content: "\25BC";
+    bottom: 10px;
+    line-height: 0;
+  }
+  .add_to_card {
+    float: right;
+    padding: 10px 20px;
+    font-weight: 600;
+    border-radius: 15px;
+    background-color: rgb(174, 203, 193);
+  }
+  .number-wrapper input[type=number]::-webkit-inner-spin-button, 
+  .number-wrapper input[type=number]::-webkit-outer-spin-button {  
+    opacity: 0;
+  }
 }
-@media (max-width: 804px) {
-  .single_book {
-    flex-direction: column;
-    margin: 40px 20px;
+.book_description {
+  margin: 40px 30px;
+  h4 {
+  font-family: 'Montserrat', 'sans-serif';
+  font-style: normal;
+  font-weight: 600;
+  }
+  p {
+    width: 100%;
+    @include mixins.adaptiv-font(20, 16);
+    padding: 10px 0;
+    height: 300px;
+    overflow: auto;
+    line-height: 1.2;
+  }
+}
+@media (max-width: 768px) {
+  .book_wrapper {
+    grid-template-areas: "img price"
+                         "about about";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    .book_about_wrapper {
+      grid-area: about;
+    }
+    .book_cover {
+      grid-area: img;
+    }
+    .book_about_price {
+      grid-area: price;
+    }
+  }
+}
+@media (max-width: 493px) {
+  .book_wrapper {
+    grid-template-areas: "img"
+                         "price"
+                         "about";
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto auto auto;
   }
 }

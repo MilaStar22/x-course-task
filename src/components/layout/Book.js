@@ -8,6 +8,7 @@ function BookDetails() {
   const [book, setBook] = useState(null);
   const [error, setError] = useState(null);
   const [count, setCount] = useState(null);
+  const [favorites, setFavorites] = useState([]);
 
   const [inputValue, setInputValue] = useState("");
 
@@ -34,6 +35,28 @@ function BookDetails() {
 
     fetchData();
   }, [id]);
+
+  useEffect(() => {
+    const storedFavorites = JSON.parse(localStorage.getItem('favorites'));
+    if (storedFavorites) {
+      setFavorites(storedFavorites);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }, [favorites]);
+
+  const addToFavorites = (book) => {
+    // Check if the movie is already in favorites
+    const isBookInFavorites = favorites.some((favBook) => favBook.id === book.id);
+  
+    if (isBookInFavorites) {
+      return; // Exit the function without adding the book
+    }
+  
+    setFavorites([...favorites, book]);
+  };
 
   const handleCountChange = (event) => {
     const newCount = parseInt(event.target.value, 10);
@@ -121,7 +144,13 @@ function BookDetails() {
               <h4>Total price</h4>
               <p>{calculateTotalPrice()}</p>
             </div>
-            <input className="add_to_card" id="add_to_card" type="button" value="Add to cart" />
+            <input 
+              className="add_to_card" 
+              id="add_to_card" 
+              type="button" 
+              value="Add to cart" 
+              onClick={() => addToFavorites(book)}
+            />
           </div>
         </div>
         <div className='book_description'>

@@ -93,6 +93,9 @@
     font-weight: 600;
     border-radius: 15px;
     background-color: rgb(174, 203, 193);
+    &:hover {
+      background-color: rgb(225, 93, 111);
+    }
   }
   .number-wrapper input[type=number]::-webkit-inner-spin-button, 
   .number-wrapper input[type=number]::-webkit-outer-spin-button {  

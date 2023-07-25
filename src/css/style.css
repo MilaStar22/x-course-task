@@ -215,6 +215,15 @@ footer .footer-copyright a:hover {
   align-items: center;
   justify-content: center;
 }
+.error .login_header {
+  align-self: flex-start;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  padding: 20px 0;
+  margin-bottom: 50px;
+  width: 100%;
+  font-weight: 700;
+}
 .error img {
   width: 70%;
 }
@@ -243,8 +252,10 @@ footer .footer-copyright a:hover {
   background: transparent;
   border: 1px solid #b4b4b4;
   font-weight: 500;
+  border-radius: 10px;
+  background-color: rgb(211, 204, 204);
 }
-.error a:hover {
+.error a button:hover {
   background-color: rgb(225, 93, 111);
 }
 
@@ -256,7 +267,16 @@ footer .footer-copyright a:hover {
   gap: 10px;
   margin: 0 auto;
   box-sizing: border-box;
-  padding-top: 30px;
+  padding: 30px 0 100px;
+}
+.login_form .login_header {
+  align-self: flex-start;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  padding: 20px 0;
+  margin-bottom: 50px;
+  width: 100%;
+  font-weight: 700;
 }
 .login_form .user_login {
   border-radius: 5px;
@@ -272,7 +292,7 @@ footer .footer-copyright a:hover {
   align-items: center;
   justify-content: center;
   padding-top: 20px;
-  gap: 10px;
+  gap: 20px;
   width: 100%;
 }
 .login_form .form label {
@@ -285,12 +305,21 @@ footer .footer-copyright a:hover {
   height: 40px;
   border-radius: 10px;
   text-align: center;
+  padding: 0;
 }
-.login_form .form input[type=submit] {
+.login_form .form .login_submit {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.login_form .form .login_submit input[type=submit] {
   background-color: rgb(211, 204, 204);
   font-weight: 600;
 }
-.login_form .form input[type=submit]:hover {
+.login_form .form .login_submit input[type=submit]:hover {
   background-color: rgb(225, 93, 111);
 }
 .login_form .form small {
@@ -344,7 +373,66 @@ footer .footer-copyright a:hover {
   font-size: calc(14px + 6 * ((100vw - 320px) / 1080));
   font-weight: 600;
 }
+.bucket_wrapper .no_empty_bucket {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+  border: 1px solid black;
+  font-size: calc(14px + 6 * ((100vw - 320px) / 1080));
+}
+.bucket_wrapper .no_empty_bucket .book_add {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  padding: 15px;
+}
+.bucket_wrapper .no_empty_bucket .book_add h3 {
+  width: 60%;
+}
+.bucket_wrapper .no_empty_bucket .book_add span {
+  width: 20%;
+}
+.bucket_wrapper .no_empty_bucket .book_add p {
+  width: 20%;
+}
+.bucket_wrapper .no_empty_bucket .btn_remove {
+  display: block;
+  padding: 10px 15px;
+  font-weight: 600;
+  border-radius: 5px;
+  background-color: rgb(219, 211, 211);
+  font-size: calc(14px + 6 * ((100vw - 320px) / 1080));
+}
+.bucket_wrapper .no_empty_bucket .btn_remove:hover {
+  background-color: rgb(225, 93, 111);
+}
+.bucket_wrapper .total_price {
+  display: block;
+  float: right;
+  padding-top: 20px;
+  font-weight: 600;
+  font-size: calc(14px + 6 * ((100vw - 320px) / 1080));
+}
 
+@media (max-width: 405px) {
+  .bucket_wrapper .no_empty_bucket .book_add {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .bucket_wrapper .no_empty_bucket .book_add h3 {
+    width: 100%;
+  }
+  .bucket_wrapper .no_empty_bucket .book_add span {
+    width: 100%;
+  }
+  .bucket_wrapper .no_empty_bucket .book_add p {
+    width: 100%;
+  }
+}
 h2 {
   font-size: calc(17px + 9 * ((100vw - 320px) / 1080));
   font-weight: 600;
@@ -387,6 +475,7 @@ h2 {
   padding: 5px 0;
   background-color: rgb(211, 204, 204);
   font-weight: 600;
+  height: 40px;
 }
 .books_wrapper .book .btn_list:hover {
   background-color: rgb(225, 93, 111);
@@ -498,6 +587,9 @@ h2 {
   font-weight: 600;
   border-radius: 15px;
   background-color: rgb(174, 203, 193);
+}
+.book_wrapper .add_to_card:hover {
+  background-color: rgb(225, 93, 111);
 }
 .book_wrapper .number-wrapper input[type=number]::-webkit-inner-spin-button,
 .book_wrapper .number-wrapper input[type=number]::-webkit-outer-spin-button {

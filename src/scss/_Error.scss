@@ -2,6 +2,15 @@
 
 .error {
   @include mixins.flex-center;
+  .login_header {
+    align-self: flex-start;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    padding: 20px 0;
+    margin-bottom: 50px;
+    width: 100%;
+    font-weight: 700;
+  }
   img {
     width: 70%;
   }
@@ -29,9 +38,11 @@
       background: transparent;
       border: 1px solid #b4b4b4;
       font-weight: 500;
-    }
-    &:hover {
-      background-color: rgb(225, 93, 111);
+      border-radius: 10px;
+      background-color: rgb(211, 204, 204);
+      &:hover {
+        background-color: rgb(225, 93, 111);
+      }  
     }
   }
 }

@@ -15,15 +15,18 @@ export default function Login() {
     
     return (
       <div className='login_form'>
+        <div className="login_header">JS Band Store / Liudmyla Starovoit</div>
         <div className="user_login">
           <svg><use href={sprite + "#user_square"} alt="user_logo"/></svg>
         </div>
         <form 
           className='form'
           onSubmit={handleSubmit((d) => console.log(d))}>
-            <label name="user">Username</label>
+            <label htmlFor="user">Username</label>
               <input
+                type="text"
                 id="user"
+                name="user"
                 className='login_user'
                 placeholder='type Username'
                 {...register("user", {
@@ -44,10 +47,9 @@ export default function Login() {
                 <small>{errors.user.message}</small>
               )}
 
-            <Link to='/books'>
+            <Link to='/' className='login_submit'>
               <input 
                 type="submit" 
-                className='login_submit'
                 value="Sign-In"
               />
             </Link>

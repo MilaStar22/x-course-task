@@ -9,11 +9,12 @@ function NotFoundPage () {
 
   return (
     <div className="error container">
+      <div className="login_header">JS Band Store / Liudmyla Starovoit</div>
       <img src={error} alt="404"/>
       <h1>Error 404</h1>
       <p>Sorry Page Not Found</p>
       <Link to={'/'}>
-        <button>Back to Home</button>
+        <button>to Home Page</button>
       </Link>
     </div>
   )

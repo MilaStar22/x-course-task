@@ -23,7 +23,7 @@ function Header() {
         </div>
         <div className="user">
           <Link to='/purchase'><svg><use href={sprite + "#bucket"} alt="bucket"/></svg></Link>
-          <Link to='/'><button className="sign-out">Sign-out</button></Link>
+          <Link to='/signin'><button className="sign-out">Sign-out</button></Link>
           <svg><use href={sprite + "#user"} alt="user_logo"/></svg>
           <span>Username</span>
         </div>

@@ -10,10 +10,11 @@
     align-self: flex-start;
     border-top: 2px solid black;
     border-bottom: 2px solid black;
-    padding: 20px 0;
+    padding: 20px;
     margin-bottom: 50px;
     width: 100%;
     font-weight: 700;
+    background-color: rgb(31, 143, 145);
   }
   .user_login {
     border-radius: 5px;
@@ -42,14 +43,15 @@
     }
     .login_submit {
       width: 100%;
-      @include mixins.flex-center;
-      text-decoration: none;
-      input[type=submit] {
-        background-color: rgb(211, 204, 204);
-        font-weight: 600;
-        &:hover {
-          background-color: rgb(225, 93, 111);
-        }
+      max-width: 200px;
+      height: 40px;
+      border-radius: 10px;
+      text-align: center;
+      padding: 0;
+      background-color: rgb(174, 203, 193);
+      font-weight: 600;
+      &:hover {
+        background-color: rgb(225, 93, 111);
       }
     }
     small {
@@ -61,14 +63,16 @@
 }
 @media (max-width: 320px) {
   .login_form {
-    padding: 10px 8px;
+    padding: 0;
     .user_login {
       width: 200px;
       height: 188px;
     }
-    .form input, input[type=submit] {
-    max-width: calc(100% - 8px);
-    max-width: 100%;
+    .form input {
+      max-width: calc(100% - 8px);
     }
+  }
+  .login_form .form .login_submit {
+    max-width: calc(100% - 8px);
   }
 }

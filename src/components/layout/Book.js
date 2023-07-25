@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import defaultImage from '../img/book_no_img1.jpeg';
 
 function BookDetails() {
@@ -156,6 +156,7 @@ function BookDetails() {
         <div className='book_description'>
           <h4>Description</h4>
           <p> {book.description} </p>
+          <Link to="/"><button className="to_books">to Books List</button></Link>
         </div>
       </>
     );

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 import sprite from "../img/sprites.svg";
 
-export default function Purchase() {
+export default function Bucket() {
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
@@ -19,6 +20,10 @@ export default function Purchase() {
     setFavorites((prevFavorites) => prevFavorites.filter((favBook) => favBook.id !== book.id));
   };
 
+  function removeFavoritesFromLocalStorage() {
+    localStorage.removeItem('favorites');
+  }
+
   const calculateTotalPrice = () => {
     let totalPrice = 0;
 
@@ -32,7 +37,10 @@ export default function Purchase() {
 
   return (
     <div className="bucket_wrapper">
-      <button className="btn_purchase">Purchase</button>
+      <div className='btn_wrapper'>
+        <Link to="/"><button className="btn_to_books">to Books List</button></Link>
+        <button className="btn_purchase" onClick={removeFavoritesFromLocalStorage}>Purchase</button>
+      </div>
       {favorites.length === 0 ? (
         <div className="empty_bucket container">
           <svg><use href={sprite + "#bucket"} alt="bucket"/></svg>
@@ -51,7 +59,7 @@ export default function Purchase() {
                 className='btn_remove' 
                 onClick={() => removeFromFavorites(book)}
               >
-                Remove
+                DEL
               </button>
             </div>
           ))}
@@ -60,5 +68,4 @@ export default function Purchase() {
       )}
     </div>
   );
-  
 }

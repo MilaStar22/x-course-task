@@ -15,7 +15,7 @@ export default function BookList() {
       }
     })
       .then(response => {
-        console.log(response.data);
+        // console.log(response.data);
         setBook(response.data);
       })
       .catch(error => {

@@ -113,9 +113,21 @@
     width: 100%;
     @include mixins.adaptiv-font(20, 16);
     padding: 10px 0;
-    height: 300px;
+    max-height: 300px;
     overflow: auto;
     line-height: 1.2;
+  }
+  .to_books {
+    display: block;
+    float: left;
+    margin: 20px;
+    padding: 10px 15px;
+    font-weight: 600;
+    border-radius: 5px;
+    background-color: rgb(155, 149, 149);
+    &:hover {
+      background-color: rgb(225, 93, 111);
+    }
   }
 }
 @media (max-width: 768px) {

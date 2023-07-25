@@ -219,10 +219,11 @@ footer .footer-copyright a:hover {
   align-self: flex-start;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
-  padding: 20px 0;
+  padding: 20px;
   margin-bottom: 50px;
   width: 100%;
   font-weight: 700;
+  background-color: rgb(31, 143, 145);
 }
 .error img {
   width: 70%;
@@ -231,7 +232,7 @@ footer .footer-copyright a:hover {
   font-size: calc(45px + 35 * ((100vw - 320px) / 1080));
   font-weight: 700;
   line-height: 1.2;
-  color: rgb(225, 93, 111);
+  color: rgb(31, 143, 145);
   margin: 10px;
 }
 .error p {
@@ -253,7 +254,7 @@ footer .footer-copyright a:hover {
   border: 1px solid #b4b4b4;
   font-weight: 500;
   border-radius: 10px;
-  background-color: rgb(211, 204, 204);
+  background-color: rgb(174, 203, 193);
 }
 .error a button:hover {
   background-color: rgb(225, 93, 111);
@@ -273,10 +274,11 @@ footer .footer-copyright a:hover {
   align-self: flex-start;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
-  padding: 20px 0;
+  padding: 20px;
   margin-bottom: 50px;
   width: 100%;
   font-weight: 700;
+  background-color: rgb(31, 143, 145);
 }
 .login_form .user_login {
   border-radius: 5px;
@@ -309,17 +311,15 @@ footer .footer-copyright a:hover {
 }
 .login_form .form .login_submit {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-}
-.login_form .form .login_submit input[type=submit] {
-  background-color: rgb(211, 204, 204);
+  max-width: 200px;
+  height: 40px;
+  border-radius: 10px;
+  text-align: center;
+  padding: 0;
+  background-color: rgb(174, 203, 193);
   font-weight: 600;
 }
-.login_form .form .login_submit input[type=submit]:hover {
+.login_form .form .login_submit:hover {
   background-color: rgb(225, 93, 111);
 }
 .login_form .form small {
@@ -330,31 +330,41 @@ footer .footer-copyright a:hover {
 
 @media (max-width: 320px) {
   .login_form {
-    padding: 10px 8px;
+    padding: 0;
   }
   .login_form .user_login {
     width: 200px;
     height: 188px;
   }
-  .login_form .form input, .login_form input[type=submit] {
+  .login_form .form input {
     max-width: calc(100% - 8px);
-    max-width: 100%;
+  }
+  .login_form .form .login_submit {
+    max-width: calc(100% - 8px);
   }
 }
 .bucket_wrapper {
   margin: 0 auto;
   box-sizing: border-box;
 }
-.bucket_wrapper .btn_purchase {
+.bucket_wrapper .btn_wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.bucket_wrapper .btn_wrapper a {
+  text-decoration: none;
+}
+.bucket_wrapper .btn_wrapper .btn_purchase, .bucket_wrapper .btn_wrapper .btn_to_books {
   display: block;
-  float: right;
   margin: 20px;
   padding: 10px 15px;
   font-weight: 600;
   border-radius: 5px;
-  background-color: rgb(155, 149, 149);
+  background-color: rgb(174, 203, 193);
+  font-size: calc(14px + 6 * ((100vw - 320px) / 1080));
 }
-.bucket_wrapper .btn_purchase:hover {
+.bucket_wrapper .btn_wrapper .btn_purchase:hover, .bucket_wrapper .btn_wrapper .btn_to_books:hover {
   background-color: rgb(225, 93, 111);
 }
 .bucket_wrapper .empty_bucket {
@@ -432,6 +442,10 @@ footer .footer-copyright a:hover {
   .bucket_wrapper .no_empty_bucket .book_add p {
     width: 100%;
   }
+  .bucket_wrapper .btn_wrapper .btn_purchase, .to_book {
+    padding: 10px;
+    margin: 20px 10px;
+  }
 }
 h2 {
   font-size: calc(17px + 9 * ((100vw - 320px) / 1080));
@@ -473,7 +487,7 @@ h2 {
   width: 100%;
   border-radius: 5px;
   padding: 5px 0;
-  background-color: rgb(211, 204, 204);
+  background-color: rgb(174, 203, 193);
   font-weight: 600;
   height: 40px;
 }
@@ -608,9 +622,21 @@ h2 {
   width: 100%;
   font-size: calc(16px + 4 * ((100vw - 320px) / 1080));
   padding: 10px 0;
-  height: 300px;
+  max-height: 300px;
   overflow: auto;
   line-height: 1.2;
+}
+.book_description .to_books {
+  display: block;
+  float: left;
+  margin: 20px;
+  padding: 10px 15px;
+  font-weight: 600;
+  border-radius: 5px;
+  background-color: rgb(155, 149, 149);
+}
+.book_description .to_books:hover {
+  background-color: rgb(225, 93, 111);
 }
 
 @media (max-width: 768px) {

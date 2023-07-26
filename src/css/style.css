@@ -411,14 +411,9 @@ footer .footer-copyright a:hover {
 }
 .bucket_wrapper .no_empty_bucket .btn_remove {
   display: block;
-  padding: 10px 15px;
-  font-weight: 600;
-  border-radius: 5px;
-  background-color: rgb(219, 211, 211);
-  font-size: calc(14px + 6 * ((100vw - 320px) / 1080));
 }
 .bucket_wrapper .no_empty_bucket .btn_remove:hover {
-  background-color: rgb(225, 93, 111);
+  background-color: rgb(174, 203, 193);
 }
 .bucket_wrapper .total_price {
   display: block;
@@ -452,6 +447,19 @@ h2 {
   font-weight: 600;
   text-align: center;
   padding: 20px 0;
+}
+
+.select_books {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-weight: 600;
+  font-size: calc(16px + 6 * ((100vw - 320px) / 1080));
+}
+.select_books select {
+  height: 40px;
 }
 
 .books_wrapper {

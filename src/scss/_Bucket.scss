@@ -66,13 +66,8 @@
     }
     .btn_remove {
       display: block;
-      padding: 10px 15px;
-      font-weight: 600;
-      border-radius: 5px;
-      background-color: rgb(219, 211, 211);
-      @include mixins.adaptiv-font(20, 14);
       &:hover {
-        background-color: rgb(225, 93, 111);
+        background-color: rgb(174, 203, 193);
       }
     }
   }

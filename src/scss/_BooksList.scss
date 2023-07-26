@@ -6,6 +6,18 @@ h2 {
   text-align: center;
   padding: 20px 0;
 }
+.select_books {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-weight: 600;
+  @include mixins.adaptiv-font(22, 16);
+  select {
+    height: 40px;
+  }
+}
 .books_wrapper {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
+import { FaTimes} from "react-icons/fa";
 import sprite from "../img/sprites.svg";
 
 export default function Bucket() {
@@ -38,8 +39,14 @@ export default function Bucket() {
   return (
     <div className="bucket_wrapper">
       <div className='btn_wrapper'>
-        <Link to="/"><button className="btn_to_books">to Books List</button></Link>
-        <button className="btn_purchase" onClick={removeFavoritesFromLocalStorage}>Purchase</button>
+        <Link to="/"><button className="btn_to_books">add Book</button></Link>
+        <button 
+          className="btn_purchase" 
+          onClick={removeFavoritesFromLocalStorage}
+          disabled={favorites.length === 0}
+        >
+          Purchase
+        </button>
       </div>
       {favorites.length === 0 ? (
         <div className="empty_bucket container">
@@ -55,12 +62,12 @@ export default function Bucket() {
                 <span>Count: {book.count}</span>
                 <p>Total price: {book.count * parseFloat(book.price)}</p>
               </div>
-              <button 
+              <p 
                 className='btn_remove' 
                 onClick={() => removeFromFavorites(book)}
               >
-                DEL
-              </button>
+                <FaTimes style={{color: 'red', cursor: 'pointer'}}/>
+              </p>
             </div>
           ))}
           <div className='total_price'>Total price, $ {calculateTotalPrice()}</div>

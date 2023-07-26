@@ -9,7 +9,6 @@ function BookDetails() {
   const [error, setError] = useState(null);
   const [count, setCount] = useState(null);
   const [favorites, setFavorites] = useState([]);
-
   const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
@@ -54,7 +53,6 @@ function BookDetails() {
     if (isBookInFavorites) {
       return; // Exit the function without adding the book
     }
-  
     setFavorites([...favorites, book]);
   };
 
@@ -111,7 +109,7 @@ function BookDetails() {
               <p> {book.author} </p>
             </div>
             <div className="book_about">
-              <h4>Level for:</h4>
+              <h4>Level:</h4>
               <p>{book.level}</p>
             </div>
             <div className="book_about">

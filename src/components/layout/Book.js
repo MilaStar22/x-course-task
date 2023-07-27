@@ -1,39 +1,18 @@
 import React from 'react';
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
 import { useParams, Link } from "react-router-dom";
+import { useBook } from '../../context/BookContext';
+
 import defaultImage from '../img/book_no_img1.jpeg';
 
 function BookDetails() {
+  const {books, error, count, setCount, favorites, setFavorites} = useBook();
+
   const { id } = useParams();
-  const [book, setBook] = useState(null);
-  const [error, setError] = useState(null);
-  const [count, setCount] = useState(null);
-  const [favorites, setFavorites] = useState([]);
   const [inputValue, setInputValue] = useState("");
 
-  useEffect(() => {
-    // Simulating the fetch request with the local data
-    const fetchData = async () => {
-      try {
-        // Fetch the book data based on the provided ID
-        const response = await fetch('http://localhost:3000/x-course-task/data.json');
-        const data = await response.json();
-
-        // Find the book with the matching ID
-        const selectedBook = data.books.find(book => book.id === parseInt(id));
-
-        if (selectedBook) {
-          setBook(selectedBook);
-        } else {
-          setError('Book not found');
-        }
-      } catch (error) {
-        setError(error.message);
-      }
-    };
-
-    fetchData();
-  }, [id]);
+  // render one book, which was chosen at BookList page
+  const chosenBook = books.find(book => book.id === parseInt(id));
 
   useEffect(() => {
     const storedFavorites = JSON.parse(localStorage.getItem('favorites'));
@@ -47,13 +26,20 @@ function BookDetails() {
   }, [favorites]);
 
   const addToFavorites = (book) => {
-    // Check if the movie is already in favorites
     const isBookInFavorites = favorites.some((favBook) => favBook.id === book.id);
-  
+
     if (isBookInFavorites) {
       return; // Exit the function without adding the book
     }
-    setFavorites([...favorites, book]);
+    // Add the book details to favorites
+    const newFavorite = {
+      id: book.id,
+      title: book.title,
+      amount: count,
+      totalPrice: calculateTotalPrice()
+    };
+
+    setFavorites([...favorites, newFavorite]);
   };
 
   const handleCountChange = (event) => {
@@ -81,46 +67,48 @@ function BookDetails() {
   };
   
   const calculateTotalPrice = () => {
-    const bookPrice = parseFloat(book.price);
-    const totalPrice = bookPrice * count;
-    return totalPrice.toFixed(2);
+    // const bookPrice = parseFloat(chosenBook.price);
+    const totalPrice = parseFloat(chosenBook.price * count);
+    return parseInt(totalPrice).toFixed(2);
   };
+
+  console.log(calculateTotalPrice());
 
   if (error) {
     return <div className="error"> <h2>{error}</h2></div>;
-  } else if (book) {
-    document.title = book.title;
+  } else if (chosenBook) {
+    document.title = chosenBook.title;
 
     return (
       <>
         <div className="book_wrapper">
-            <img
+          <img
               className="book_cover"
-              src={book.image || defaultImage}
-              alt={book.title}
-            />
+              src={chosenBook.image || defaultImage}
+              alt={chosenBook.title}
+          />
           <div className="book_about_wrapper">
             <div className="book_about">
               <h4>Title:</h4>
-              <p>{book.title}</p>
+              <p>{chosenBook.title}</p>
             </div>
             <div className="book_about">
               <h4>Author:</h4>
-              <p> {book.author} </p>
+              <p> {chosenBook.author} </p>
             </div>
             <div className="book_about">
               <h4>Level:</h4>
-              <p>{book.level}</p>
+              <p>{chosenBook.level}</p>
             </div>
             <div className="book_about">
               <h4>Book tags:</h4>
-              <p>{book.tags.join(" / ")}</p>
+              <p>{chosenBook.tags.join(" / ")}</p>
             </div>
           </div>
           <div className="book_about_price">
             <div className="about_price">
               <h4>Price, $</h4>
-              <p>{book.price}</p>
+              <p>{chosenBook.price}</p>
             </div>
             <div className="about_price">
               <h4>Count</h4>
@@ -147,20 +135,19 @@ function BookDetails() {
               id="add_to_card" 
               type="button" 
               value="Add to cart" 
-              onClick={() => addToFavorites(book)}
+              onClick={() => addToFavorites(chosenBook)}
             />
           </div>
         </div>
         <div className='book_description'>
           <h4>Description</h4>
-          <p> {book.description} </p>
+          <p> {chosenBook.description} </p>
           <Link to="/"><button className="to_books">to Books List</button></Link>
         </div>
       </>
-    );
-  } else {
-    return null;
-  }
+
+    )
+  } 
 }
 
 export default BookDetails;

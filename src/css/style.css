@@ -84,9 +84,21 @@ header .header .logo .logo_img {
   height: auto;
   max-height: 100px;
 }
+header .header .logo_text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+header .header .logo_text h1 {
+  font-size: calc(16px + 6 * ((100vw - 320px) / 1080));
+  font-weight: 600;
+  text-align: start;
+}
 header .header .logo_text p {
   font-size: calc(14px + 6 * ((100vw - 320px) / 1080));
-  font-weight: 600;
 }
 header .header .user {
   display: flex;
@@ -131,6 +143,13 @@ header .header .user span {
   header .header .user {
     grid-area: user;
     justify-content: flex-end;
+  }
+}
+@media (max-width: 345px) {
+  header .header {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
   }
 }
 footer {
@@ -343,19 +362,19 @@ footer .footer-copyright a:hover {
     max-width: calc(100% - 8px);
   }
 }
-.bucket_wrapper {
+.basket_wrapper {
   margin: 0 auto;
   box-sizing: border-box;
 }
-.bucket_wrapper .btn_wrapper {
+.basket_wrapper .btn_wrapper {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.bucket_wrapper .btn_wrapper a {
+.basket_wrapper .btn_wrapper a {
   text-decoration: none;
 }
-.bucket_wrapper .btn_wrapper .btn_purchase, .bucket_wrapper .btn_wrapper .btn_to_books {
+.basket_wrapper .btn_wrapper .btn_purchase, .basket_wrapper .btn_wrapper .btn_to_books {
   display: block;
   margin: 20px;
   padding: 10px 15px;
@@ -364,80 +383,82 @@ footer .footer-copyright a:hover {
   background-color: rgb(174, 203, 193);
   font-size: calc(14px + 6 * ((100vw - 320px) / 1080));
 }
-.bucket_wrapper .btn_wrapper .btn_purchase:hover, .bucket_wrapper .btn_wrapper .btn_to_books:hover {
+.basket_wrapper .btn_wrapper .btn_purchase:hover, .basket_wrapper .btn_wrapper .btn_to_books:hover {
   background-color: rgb(225, 93, 111);
 }
-.bucket_wrapper .empty_bucket {
+.basket_wrapper .empty_basket {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 20px;
 }
-.bucket_wrapper .empty_bucket svg {
+.basket_wrapper .empty_basket .empty_basket_img {
   fill: rgb(122, 118, 118);
   width: 80px;
   height: auto;
 }
-.bucket_wrapper .empty_bucket p {
+.basket_wrapper .empty_basket p {
   font-size: calc(14px + 6 * ((100vw - 320px) / 1080));
   font-weight: 600;
 }
-.bucket_wrapper .no_empty_bucket {
+.basket_wrapper .no_empty_basket {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  gap: 20px;
-  border: 1px solid black;
+  gap: 10px;
   font-size: calc(14px + 6 * ((100vw - 320px) / 1080));
 }
-.bucket_wrapper .no_empty_bucket .book_add {
+.basket_wrapper .no_empty_basket .book_add {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 30px;
+  gap: 10px;
   width: 100%;
   padding: 15px;
+  border: 1px solid black;
 }
-.bucket_wrapper .no_empty_bucket .book_add h3 {
-  width: 60%;
+.basket_wrapper .no_empty_basket .book_add h3 {
+  width: 45%;
+  font-weight: 700;
 }
-.bucket_wrapper .no_empty_bucket .book_add span {
+.basket_wrapper .no_empty_basket .book_add span {
   width: 20%;
 }
-.bucket_wrapper .no_empty_bucket .book_add p {
-  width: 20%;
+.basket_wrapper .no_empty_basket .book_add p {
+  width: 30%;
 }
-.bucket_wrapper .no_empty_bucket .btn_remove {
+.basket_wrapper .no_empty_basket .btn_remove {
   display: block;
 }
-.bucket_wrapper .no_empty_bucket .btn_remove:hover {
+.basket_wrapper .no_empty_basket .btn_remove:hover {
   background-color: rgb(174, 203, 193);
 }
-.bucket_wrapper .total_price {
+.basket_wrapper .total_price {
   display: block;
   float: right;
   padding-top: 20px;
   font-weight: 600;
   font-size: calc(14px + 6 * ((100vw - 320px) / 1080));
+  padding-right: 20px;
 }
 
-@media (max-width: 405px) {
-  .bucket_wrapper .no_empty_bucket .book_add {
+@media (max-width: 425px) {
+  .basket_wrapper .no_empty_basket .book_add {
     flex-direction: column;
     align-items: flex-start;
   }
-  .bucket_wrapper .no_empty_bucket .book_add h3 {
+  .basket_wrapper .no_empty_basket .book_add h3 {
     width: 100%;
   }
-  .bucket_wrapper .no_empty_bucket .book_add span {
+  .basket_wrapper .no_empty_basket .book_add span {
     width: 100%;
   }
-  .bucket_wrapper .no_empty_bucket .book_add p {
+  .basket_wrapper .no_empty_basket .book_add p {
     width: 100%;
   }
-  .bucket_wrapper .btn_wrapper .btn_purchase, .to_book {
+  .basket_wrapper .btn_wrapper .btn_purchase, .btn_to_books {
     padding: 10px;
     margin: 20px 10px;
   }
@@ -641,7 +662,7 @@ h2 {
   padding: 10px 15px;
   font-weight: 600;
   border-radius: 5px;
-  background-color: rgb(155, 149, 149);
+  background-color: rgb(174, 203, 193);
 }
 .book_description .to_books:hover {
   background-color: rgb(225, 93, 111);
@@ -686,7 +707,7 @@ body:hover {
 }
 
 main {
-  padding: 10px 20px 50px;
+  padding: 10px 0 50px;
 }
 
 .day-night {

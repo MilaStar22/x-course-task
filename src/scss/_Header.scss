@@ -26,9 +26,21 @@ header {
       max-height: 100px;
       }
     }
-    .logo_text p {
-      @include mixins.adaptiv-font(20, 14);
-      font-weight: 600;
+    .logo_text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 15px;
+      h1 {
+        @include mixins.adaptiv-font(22, 16);
+        font-weight: 600;
+        text-align: start
+      }
+      p {
+        @include mixins.adaptiv-font(20, 14);
+      }
     }
     .user {
       display: flex;
@@ -75,5 +87,12 @@ header {
       grid-area: user;
       justify-content: flex-end;
     }
+  }
+}
+@media (max-width: 345px) {
+  header .header {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
   }
 }

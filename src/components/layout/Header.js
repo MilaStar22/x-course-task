@@ -1,6 +1,7 @@
 import { useNavigate, Link } from "react-router-dom";
 import logo from "../img/logo.png";
 import sprite from "../img/sprites.svg";
+import { BsBasket2 } from "react-icons/bs";
 
 function Header() {
   
@@ -22,10 +23,11 @@ function Header() {
           <img className='logo_img' src={logo} alt="logo" onClick={redirectHome} />
         </div>
         <div className="logo_text">
-          <p>JS BOOK STORE / Hello, {localStorage.getItem('user')}</p>
+          <h1>JS BOOK STORE / Hello, {localStorage.getItem('user')}</h1>
+          <p>X-course task / Starovoit Liudmyla</p>
         </div>
         <div className="user">
-          <Link to='/purchase'><svg><use href={sprite + "#bucket"} alt="bucket"/></svg></Link>
+          <Link to='/purchase'><BsBasket2 style={{color: 'black', width: '42px', height: 'auto'}} alt='basket'/></Link>
           <Link to='/signin'><button className="sign-out" onClick={deleteUser}>Sign-out</button></Link>
           <svg><use href={sprite + "#user"} alt="user_logo"/></svg>
           <span>{localStorage.getItem('user')}</span>

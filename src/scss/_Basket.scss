@@ -1,6 +1,6 @@
 @use "./mixins";
 
-.bucket_wrapper {
+.basket_wrapper {
   margin: 0 auto;
   box-sizing: border-box;
   .btn_wrapper {
@@ -23,13 +23,13 @@
       }
     }
   }
-  .empty_bucket {
+  .empty_basket {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 20px;
-    svg {
+    .empty_basket_img {
       fill: rgb(122, 118, 118);
       width: 80px;
       height: auto;
@@ -39,29 +39,30 @@
       font-weight: 600;
     }
   }
-  .no_empty_bucket {
+  .no_empty_basket {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-    gap: 20px;
-    border: 1px solid black;
+    gap: 10px;
     @include mixins.adaptiv-font(20, 14);
     .book_add {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 30px;
+      gap: 10px;
       width: 100%;
       padding: 15px;
+      border: 1px solid black;
       h3 {
-        width: 60%;
+        width: 45%;
+        font-weight: 700;
       }
       span {
         width: 20%;
       }
       p {
-        width: 20%;
+        width: 30%;
       }
     }
     .btn_remove {
@@ -77,10 +78,11 @@
     padding-top: 20px;
     font-weight: 600;
     @include mixins.adaptiv-font(20, 14);
+    padding-right: 20px;
   }
 }
-@media (max-width: 405px) {
-  .bucket_wrapper .no_empty_bucket .book_add {
+@media (max-width: 425px) {
+  .basket_wrapper .no_empty_basket .book_add {
     flex-direction: column;
     align-items: flex-start;
     h3 {
@@ -93,7 +95,7 @@
       width: 100%;
     }
   }
-  .bucket_wrapper .btn_wrapper .btn_purchase, .to_book {
+  .basket_wrapper .btn_wrapper .btn_purchase, .btn_to_books {
     padding: 10px;
     margin: 20px 10px;
   }

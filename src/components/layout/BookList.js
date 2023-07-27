@@ -1,33 +1,11 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState} from 'react';
 import {Link} from "react-router-dom";
-import axios from "axios";
+import { useBook } from '../../context/BookContext';
 import defaultImage from '../img/book_no_img1.jpeg';
 
 export default function BookList() {
-  const [books, setBooks]=useState([]);
-  const [error, setError] = useState(null);
+  const {books, error} = useBook();
   const [selectedFilter, setSelectedFilter] = useState('all');
-
-  async function fetchData() {
-    axios.get('data.json', {
-      headers : { 
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }
-    })
-      .then(response => {
-        // console.log(response.data);
-        setBooks(response.data.books);
-      })
-      .catch(error => {
-        setError(error.message);
-      })
-  }
-
-  useEffect( () => {
-    fetchData()
-    // eslint-disable-next-line
-  }, []);
 
   const handleFilterChange = (event) => {
     setSelectedFilter(event.target.value);

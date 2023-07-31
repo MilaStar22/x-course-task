@@ -1,29 +1,20 @@
 import React from 'react';
-import { useEffect, useState} from "react";
+import { useState} from "react";
 import { useParams, Link } from "react-router-dom";
 import { useBook } from '../../context/BookContext';
+import { useFavorite } from '../../context/FavoriteContext';
 
 import defaultImage from '../img/book_no_img1.jpeg';
 
 function BookDetails() {
-  const {books, error, count, setCount, favorites, setFavorites} = useBook();
+  const {books, error, count, setCount} = useBook();
+  const { favorites, setFavorites} = useFavorite();
 
   const { id } = useParams();
   const [inputValue, setInputValue] = useState("");
 
   // render one book, which was chosen at BookList page
   const chosenBook = books.find(book => book.id === parseInt(id));
-
-  useEffect(() => {
-    const storedFavorites = JSON.parse(localStorage.getItem('favorites'));
-    if (storedFavorites) {
-      setFavorites(storedFavorites);
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-  }, [favorites]);
 
   const addToFavorites = (book) => {
     const isBookInFavorites = favorites.some((favBook) => favBook.id === book.id);

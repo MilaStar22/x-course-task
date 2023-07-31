@@ -1,23 +1,11 @@
-import React, { useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { FaTimes} from "react-icons/fa";
 import { BsBasket2 } from "react-icons/bs";
-import { useBook} from '../../context/BookContext';
+import { useFavorite } from '../../context/FavoriteContext';
 
 
 export default function Basket() {
-  const {favorites, setFavorites} = useBook();
-
-  useEffect(() => {
-    const storedFavorites = JSON.parse(localStorage.getItem('favorites'));
-    if (storedFavorites) {
-      setFavorites(storedFavorites);
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-  }, [favorites]);
+  const {favorites, setFavorites} = useFavorite();
 
   const removeFromFavorites = (book) => {
     setFavorites((prevFavorites) => prevFavorites.filter((favBook) => favBook.id !== book.id));
@@ -57,7 +45,7 @@ export default function Basket() {
               <div className='book_add'>
                 <h3>{book.title}</h3>
                 <span>Count: {book.amount}</span>
-                <p>Total price: ${book.totalPrice}</p>
+                <p>Total price: {book.totalPrice}</p>
               </div>
               <p 
                 className='btn_remove' 

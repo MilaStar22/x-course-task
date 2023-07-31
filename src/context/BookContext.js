@@ -43,7 +43,7 @@ export function BookProvider({ children }) {
         count, 
         setCount, 
         favorites, 
-        setFavorites 
+        setFavorites
       }}
     >
       {children}

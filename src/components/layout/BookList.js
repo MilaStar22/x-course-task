@@ -1,5 +1,5 @@
-import React, { useState} from 'react';
-import {Link} from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import { useBook } from '../../context/BookContext';
 import defaultImage from '../img/book_no_img1.jpeg';
 
@@ -10,6 +10,10 @@ export default function BookList() {
   const handleFilterChange = (event) => {
     setSelectedFilter(event.target.value);
   };
+
+  useEffect(() => {
+    localStorage.setItem('books', JSON.stringify(books));
+  }, [books]);
     
   // Function to filter books based on the selected filter option
   const filteredBooks = books.filter((book) => {

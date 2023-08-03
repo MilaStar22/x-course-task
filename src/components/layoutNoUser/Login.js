@@ -20,7 +20,7 @@ export default function Login() {
 
   //Logic for onle one user at one session
   const onSubmit = (data) => {
-    localStorage.setItem('user', data.user);
+    sessionStorage.setItem('user', data.user);
     // setUser(data.user);
     navigate('/');
   };

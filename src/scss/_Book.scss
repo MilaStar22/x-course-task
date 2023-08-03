@@ -77,15 +77,17 @@
   .book_about_price .about_price .number-wrapper:after {
     color: blue;
     content: "\25B2";
-    margin-top: 1px;
-    line-height: 3;
+    top: 8px;
+    line-height: 2;
+    border-radius: 10px;
   }
 
   .book_about_price .about_price .number-wrapper:before {
     color: red;
     content: "\25BC";
-    bottom: 10px;
+    bottom: 8px;
     line-height: 0;
+    border-radius: 10px;
   }
   .add_to_card {
     float: right;

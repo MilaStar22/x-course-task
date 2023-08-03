@@ -615,14 +615,16 @@ h2 {
 .book_wrapper .book_about_price .about_price .number-wrapper:after {
   color: blue;
   content: "▲";
-  margin-top: 1px;
-  line-height: 3;
+  top: 8px;
+  line-height: 2;
+  border-radius: 10px;
 }
 .book_wrapper .book_about_price .about_price .number-wrapper:before {
   color: red;
   content: "▼";
-  bottom: 10px;
+  bottom: 8px;
   line-height: 0;
+  border-radius: 10px;
 }
 .book_wrapper .add_to_card {
   float: right;

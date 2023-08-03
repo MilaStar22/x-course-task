@@ -4,7 +4,7 @@ import { Outlet, Navigate } from 'react-router-dom'
 
 
 export default function PrivateRoute() {
-    let  userid = localStorage.getItem("user") == null ? false : true;
+    let  userid = sessionStorage.getItem("user") == null ? false : true;
     return (
         <>
             {userid ? <Outlet  /> : <Navigate to="/signin" />};

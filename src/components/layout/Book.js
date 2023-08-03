@@ -3,7 +3,6 @@ import { useState} from "react";
 import { useParams, Link } from "react-router-dom";
 import { useBook } from '../../context/BookContext';
 import { useFavorite } from '../../context/FavoriteContext';
-
 import defaultImage from '../img/book_no_img1.jpeg';
 
 function BookDetails() {

@@ -11,8 +11,8 @@ function Header() {
   }
 
   const deleteUser= () => {
-    // localStorage.removeItem('user');
     localStorage.clear();
+    sessionStorage.clear();
     navigate('/signin');
   };
 
@@ -30,11 +30,10 @@ function Header() {
           <Link to='/purchase'><BsBasket2 style={{color: 'black', width: '42px', height: 'auto'}} alt='basket'/></Link>
           <Link to='/signin'><button className="sign-out" onClick={deleteUser}>Sign-out</button></Link>
           <svg><use href={sprite + "#user"} alt="user_logo"/></svg>
-          <span>{localStorage.getItem('user')}</span>
+          <span>{sessionStorage.getItem('user')}</span>
         </div>
       </div>
     </header>
   );
 }
-
 export default Header;

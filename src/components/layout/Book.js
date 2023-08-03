@@ -59,11 +59,13 @@ function BookDetails() {
   
   const calculateTotalPrice = () => {
     // const bookPrice = parseFloat(chosenBook.price);
+    if (!chosenBook || isNaN(count) || isNaN(chosenBook.price)) {
+      return '0.00';
+    }
+
     const totalPrice = parseFloat(chosenBook.price * count);
     return parseInt(totalPrice).toFixed(2);
   };
-
-  console.log(calculateTotalPrice());
 
   if (error) {
     return <div className="error"> <h2>{error}</h2></div>;
@@ -80,7 +82,7 @@ function BookDetails() {
           />
           <div className="book_about_wrapper">
             <div className="book_about">
-              <h4>Title:</h4>
+              <h4 data-testid='title'>Title:</h4>
               <p>{chosenBook.title}</p>
             </div>
             <div className="book_about">
@@ -99,7 +101,7 @@ function BookDetails() {
           <div className="book_about_price">
             <div className="about_price">
               <h4>Price, $</h4>
-              <p>{chosenBook.price}</p>
+              <p data-testid="book-price">{chosenBook.price}</p>
             </div>
             <div className="about_price">
               <h4>Count</h4>
@@ -114,12 +116,13 @@ function BookDetails() {
                   onChange={handleCountChange}
                   onKeyUp={handleKeyUp}
                   value={inputValue}
+                  data-testid="count-input" 
                 />
               </span>
             </div>
             <div className="about_price">
               <h4>Total price</h4>
-              <p>{calculateTotalPrice()}</p>
+              <p data-testid="total-price">{calculateTotalPrice()}</p>
             </div>
             <input 
               className="add_to_card" 

@@ -27,7 +27,7 @@ function Footer() {
         <div className='left'>© {currentYear} Виконано в <Link to={'https://prometheus.org.ua/'}>Prometheus</Link></div>
       </div>
     </footer>
-  );
+  )
 }
 
 export default Footer;

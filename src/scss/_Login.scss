@@ -22,7 +22,13 @@
     width: 160px;
     height: 148px;
     display: flex;
+    align-items: center;
+    justify-content: center;
     padding-top: 12px;
+    .user_logo {
+      width: 80%; 
+      height: auto;
+    }
   }
   .form {
     @include mixins.flex-center;

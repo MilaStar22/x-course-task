@@ -305,7 +305,13 @@ footer .footer-copyright a:hover {
   width: 160px;
   height: 148px;
   display: flex;
+  align-items: center;
+  justify-content: center;
   padding-top: 12px;
+}
+.login_form .user_login .user_logo {
+  width: 80%;
+  height: auto;
 }
 .login_form .form {
   display: flex;

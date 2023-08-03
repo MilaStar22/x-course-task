@@ -1,10 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useForm } from 'react-hook-form';
-import sprite from "../img/sprites.svg";
-// import { useState } from "react";
+import { BiSolidUser } from "react-icons/bi";
 
 export default function Login() {
-  // const [userName, setUserName] = useState('');
   const navigate = useNavigate();
 
   const {
@@ -17,28 +15,18 @@ export default function Login() {
         },
   });
 
-
   //Logic for onle one user at one session
   const onSubmit = (data) => {
     sessionStorage.setItem('user', data.user);
-    // setUser(data.user);
     navigate('/');
   };
 
   // Logic for many users at one session
   // const onSubmit = (data) => {
-  //   // Retrieve existing usernames from local storage or create an empty array if none exist
   //   const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
-
-  //   // Add the new username to the array
   //   existingUsers.push(data.user);
-
-  //   // Save the updated array back to local storage
   //   localStorage.setItem('users', JSON.stringify(existingUsers));
-
-  //   // Update the loggedInUser state with the current user
   //   setUserName(data.user);
-
   //   navigate('/');
   // };
 
@@ -46,7 +34,7 @@ export default function Login() {
       <div className='login_form'>
         <div className="login_header">JS Band Store / Liudmyla Starovoit</div>
         <div className="user_login">
-          <svg><use href={sprite + "#user_square"} alt="user_logo"/></svg>
+          <BiSolidUser className="user_logo" alt='user_img'/>
         </div>
         <form 
           className='form'

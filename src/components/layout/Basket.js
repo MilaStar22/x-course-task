@@ -45,7 +45,7 @@ export default function Basket() {
               <div className='book_add'>
                 <h3>{book.title}</h3>
                 <span>Count: {book.amount}</span>
-                <p>Total price: {book.totalPrice}</p>
+                <p>Total price: ${book.totalPrice}</p>
               </div>
               <p 
                 className='btn_remove' 

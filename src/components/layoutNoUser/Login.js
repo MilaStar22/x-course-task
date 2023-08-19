@@ -34,7 +34,7 @@ export default function Login() {
       <div className='login_form'>
         <div className="login_header">JS Band Store / Liudmyla Starovoit</div>
         <div className="user_login">
-          <BiSolidUser className="user_logo" alt='user_img'/>
+          <BiSolidUser className="user_icon" alt='user_icon'/>
         </div>
         <form 
           className='form'

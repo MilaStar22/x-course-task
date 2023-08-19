@@ -23,7 +23,7 @@ function Header() {
           <img className='logo_img' src={logo} alt="logo" onClick={redirectHome} />
         </div>
         <div className="logo_text">
-          <h1>JS BOOK STORE / Hello, {localStorage.getItem('user')}</h1>
+          <h1>JS BOOK STORE / Hello, {sessionStorage.getItem('user')}</h1>
           <p>X-course task / Starovoit Liudmyla</p>
         </div>
         <div className="user">
